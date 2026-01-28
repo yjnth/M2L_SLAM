@@ -19,35 +19,17 @@
 	<br/>
 	<br/>
 	<?php
-	switch($_GET['ligue']){
-		case 'aeromodelisme':
-			$ligue='Aéromodélisme';
-			break;
-		case 'aeronautique':
-			$ligue='Aéronautique';
-			break;			
-		case 'aikido':
-			$ligue='Aikido';
-			break;
-		case 'athletisme':
-			$ligue='Athlétisme';
-			break;
-		case 'aviron':
-			$ligue='Aviron';
-			$prez='Gérard Rettien';
-			$mail='gerard.rettien@gmail.com';
-			$tel='03.57.28.80.02';
-			$port='06.66.20.47.03';
-			$adr='5 rue Emile Moitrier - 57050 Metz';
-			$olympique=true;
-			break;
-		case 'badminton':
-			$ligue='Badminton';
-			break;	
-		case 'baseball':
-			$ligue='Baseball';
-			break;			
-	}
+	$id = $_GET['ligue'];
+	require("connexion.php"); 
+	$res = mysqli_query($connexion, "SELECT NOM,president,mail,telephone,adresse,olympique FROM informations WHERE NOM = '".$id."';");
+			$row = mysqli_fetch_assoc($res); 
+			
+			$ligue = $row['NOM'];
+			$prez  = $row['president'];
+			$mail  = $row['mail'];
+			$tel   = $row['telephone'];
+			$adr   = $row['adresse'];
+			$olympique = (bool)$row['olympique'];
 	?>
 
 	<!-- titre de la page -->

@@ -1,3 +1,6 @@
+<?php
+require("connexion.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -31,7 +34,22 @@
 		<!-- contenu à définir -->
 		<div class="m2l-content">
 			<table class="m2l-table">
-				<tr>
+				<?php
+
+				$res = mysqli_query($connexion, "SELECT NOM FROM departement;");
+				while ($row = mysqli_fetch_assoc($res)) {
+					echo "<tr>
+							<td>
+								<a class='m2l-hover-green' 
+								{$row['NOM']}
+								<a/>
+							<td/>
+						<tr/>";
+				}
+				?>
+
+
+				<!-- <tr>
 					<td><a class="m2l-hover-green" href="lorraine.php">Ligues de Lorraine</a></td>
 				</tr>
 				<tr>
@@ -44,8 +62,8 @@
 					<td><a class="m2l-hover-green" href="moselle.php">Ligues de Moselle</a></td>
 				</tr>
 				<tr>
-					<td><a class="m2l-hover-green" href="vosges.php">Ligues des Vosges</a></td>
-				</tr>
+					<td><a class="m2l-hover-green" href="vosges.php">Ligues des Vosges</a></td> 
+				</tr>-->
 			</table>
 		</div>
 

@@ -31,6 +31,15 @@
 	<!-- contenu à définir -->
 	<div class ="m2l-content">
 		<table class="m2l-table">
+			<?php
+			
+
+
+
+
+
+
+			?>
 			 <tr><th>NOM</th><th>PRESIDENT</th><th>DETAILS</th></tr>
 			 <tr><td>Aéromodélisme</td><td>José Genser</td><td><a href='details.php?ligue=aeromodelisme'><img src='img/door.jpg'/></a></td></tr>
 			 <tr><td>Aéronautique</td><td>Philippe Muller</td><td><a href='details.php?ligue=aeronautique'><img src='img/door.jpg'/></a></td></tr>
