@@ -17,30 +17,34 @@
 
 	<ul class="m2l-navbar">
 		 <li><a class="m2l-hover-light-blue" href="crosl.html">Le CROSL</a></li>
-		 <li><a class="m2l-hover-light-blue" href="dept.html">Les Ligues</a></li>
+		 <li><a class="m2l-hover-light-blue" href="dept.php">Les Ligues</a></li>
  		<li><a class="m2l-hover-light-blue" href="contact.html">Contact</a></li>
 	</ul>
 	<br/>
 	<br/>
 
+	
+<?php
+	
+			require("connexion.php");
+
+			$dep_id = $_GET['dep'];
+			$result_dept = mysqli_query($connexion, "SELECT nom FROM departement WHERE id_departement = $dep_id");
+
+			$dept = mysqli_fetch_assoc($result_dept);
+
+
+	?> 
+
 	<!-- titre de la page -->
 	<div class ="m2l-content m2l-light-grey">
-		<h1>Les ligues de Moselle</h1>
+		<h1>Les ligues de <?php echo $dept['nom']; ?>  </h1>
 	</div>
 	
 	<!-- contenu à définir -->
 	<div class ="m2l-content">
 		<table class="m2l-table">
 			<?php
-			require("connexion.php");
-
-			$dep_id = $_GET['dep']; 
-
-
-			$result_dept = mysqli_query($connexion, "SELECT nom FROM departement WHERE id_departement = $dep_id");
-
-			$dept = mysqli_fetch_assoc($result_dept);
-
 
 			$result_ligues = mysqli_query($connexion, "SELECT nom, president FROM ligue WHERE id_dep = $dep_id");
 
@@ -51,7 +55,7 @@
        			echo "<td><a href='details.php?ligue=".$ligue['nom']."'><img src = 'img/door.jpg'></a></td>";
         		echo "</tr>";
     		}
-    ?>	
+    	?>	
 			 
 		</table>
 	</div>
