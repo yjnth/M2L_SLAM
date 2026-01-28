@@ -35,35 +35,17 @@ require("connexion.php");
 		<div class="m2l-content">
 			<table class="m2l-table">
 				<?php
-
-				$res = mysqli_query($connexion, "SELECT NOM FROM departement;");
+				$res = mysqli_query($connexion, "SELECT NOM,id_departement FROM departement;");
 				while ($row = mysqli_fetch_assoc($res)) {
 					echo "<tr>
 							<td>
-								<a class='m2l-hover-green' 
-								{$row['NOM']}
+								<a class='m2l-hover-green' href='ligue.php?dep={$row['id_departement']}'>
+								 Ligues de {$row['NOM']}
 								<a/>
 							<td/>
 						<tr/>";
 				}
 				?>
-
-
-				<!-- <tr>
-					<td><a class="m2l-hover-green" href="lorraine.php">Ligues de Lorraine</a></td>
-				</tr>
-				<tr>
-					<td><a class="m2l-hover-green" href="Meurthe-et-Moselle.php">Ligues de Meurthe-et-Moselle</a></td>
-				</tr>
-				<tr>
-					<td><a class="m2l-hover-green" href="Meuse.php">Ligues de la Meuse</a></td>
-				</tr>
-				<tr>
-					<td><a class="m2l-hover-green" href="moselle.php">Ligues de Moselle</a></td>
-				</tr>
-				<tr>
-					<td><a class="m2l-hover-green" href="vosges.php">Ligues des Vosges</a></td> 
-				</tr>-->
 			</table>
 		</div>
 

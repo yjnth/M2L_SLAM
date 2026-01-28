@@ -21,7 +21,7 @@
 	<?php
 	$id = $_GET['ligue'];
 	require("connexion.php"); 
-	$res = mysqli_query($connexion, "SELECT NOM,president,mail,telephone,adresse,olympique FROM informations WHERE NOM = '".$id."';");
+	$res = mysqli_query($connexion, "SELECT NOM,president,mail,telephone,adresse,olympique FROM ligue WHERE NOM = '".$id."';");
 			$row = mysqli_fetch_assoc($res); 
 			
 			$ligue = $row['NOM'];
