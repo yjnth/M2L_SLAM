@@ -15,7 +15,7 @@ $adresse =$_POST['adresse'];
 $olympique=$_POST['olympique'];
 $id_ligue=$_POST['id_ligue'];
 
-$resultat=mysqli_query($connexion,"insert into informations values('$NOM','$president','$mail','$telephone','$adresse','$olympique','$id_ligue')"); 
+$resultat=mysqli_query($connexion,"insert into ligue values('$NOM','$president','$mail','$telephone','$adresse','$olympique','$id_dep')"); 
 if ($resultat) echo "Ajout effectué"; 
 else echo "Ajout non effectué !"; 
 ?> 
