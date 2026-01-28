@@ -32,22 +32,27 @@
 	<div class ="m2l-content">
 		<table class="m2l-table">
 			<?php
-			
+			require("connexion.php");
+
+			$dep_id = $_GET['dep']; 
 
 
+			$result_dept = mysqli_query($connexion, "SELECT nom FROM departement WHERE id_departement = $dep_id");
+
+			$dept = mysqli_fetch_assoc($result_dept);
 
 
+			$result_ligues = mysqli_query($connexion, "SELECT nom, president FROM ligue WHERE id_dep = $dep_id");
 
-
-			?>
-			 <tr><th>NOM</th><th>PRESIDENT</th><th>DETAILS</th></tr>
-			 <tr><td>Aéromodélisme</td><td>José Genser</td><td><a href='details.php?ligue=aeromodelisme'><img src='img/door.jpg'/></a></td></tr>
-			 <tr><td>Aéronautique</td><td>Philippe Muller</td><td><a href='details.php?ligue=aeronautique'><img src='img/door.jpg'/></a></td></tr>
-			 <tr><td>Aikido</td><td>Guy Beets</td><td><a href='details.php?ligue=aikido'><img src='img/door.jpg'/></a></td></tr>
-			 <tr><td>Athlétisme</td><td>Hervé Desmoulins</td><td><a href='details.php?ligue=athletisme'><img src='img/door.jpg'/></a></td></tr>
-			 <tr><td>Aviron</td><td>Gérard Rettien</td><td><a href='details.php?ligue=aviron'><img src='img/door.jpg'/></a></td></tr>
-			 <tr><td>Badminton</td><td>Patricia Corti</td><td><a href='details.php?ligue=badminton'><img src='img/door.jpg'/></a></td></tr>
-			 <tr><td>Baseball</td><td>Olivier Keller</td><td><a href='details.php?ligue=baseball'><img src='img/door.jpg'/></a></td></tr>
+    		while ($ligue = mysqli_fetch_assoc($result_ligues)) {
+       		 	echo "<tr>";
+        		echo "<td>".$ligue['nom']."</td>";
+        		echo "<td>".$ligue['president']."</td>";
+       			echo "<td><a href='details.php?ligue=".$ligue['nom']."'><img src = 'img/door.jpg'></a></td>";
+        		echo "</tr>";
+    		}
+    ?>	
+			 
 		</table>
 	</div>
 	
