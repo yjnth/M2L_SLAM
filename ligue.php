@@ -25,15 +25,14 @@
 
 	
 <?php
-	
-			require("connexion.php");
+		$dep_id = $_GET['dep'];
+		require_once("AccesBD.php");
+		$dep_id = $_GET['dep'];
+		$connexion = connection();
+			
+		$dept = afficheDepartementNom($connexion);
 
-			$dep_id = $_GET['dep'];
-			$result_dept = mysqli_query($connexion, "SELECT nom FROM departement WHERE id_departement = $dep_id");
-
-			$dept = mysqli_fetch_assoc($result_dept);
-
-
+			
 	?> 
 
 	<!-- titre de la page -->
@@ -44,17 +43,19 @@
 	<!-- contenu à définir -->
 	<div class ="m2l-content">
 		<table class="m2l-table">
-			<?php
+		<?php
+	
+			
+			$ligues = afficheLigueNomPresident($connexion,$dep_id); // <-- attention au nom
+			foreach ($ligues as $ligue) {
+   	 		echo "<tr>";
+    		echo "<td>".$ligue['nom']."</td>";
+    		echo "<td>".$ligue['president']."</td>";
+    		echo "<td><a href='details.php?ligue=".$ligue['nom']."'><img src = 'img/door.jpg'></a></td>";
+    		echo "</tr>";
+			}
 
-			$result_ligues = mysqli_query($connexion, "SELECT nom, president FROM ligue WHERE id_dep = $dep_id");
-
-    		while ($ligue = mysqli_fetch_assoc($result_ligues)) {
-       		 	echo "<tr>";
-        		echo "<td>".$ligue['nom']."</td>";
-        		echo "<td>".$ligue['president']."</td>";
-       			echo "<td><a href='details.php?ligue=".$ligue['nom']."'><img src = 'img/door.jpg'></a></td>";
-        		echo "</tr>";
-    		}
+			
     	?>	
 			 
 		</table>

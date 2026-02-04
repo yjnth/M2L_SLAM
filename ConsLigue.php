@@ -3,7 +3,9 @@
 <div align="center"> 
 <h1>Interrogation de la table ligue</h1> 
 <?php 
-require("connexion.php"); 
+require_once("AccesBD.php");
+$connexion = connection();
+ 
 $resultat=mysqli_query($connexion ,"select * from ligue"); 
 if ($resultat) 
 { 

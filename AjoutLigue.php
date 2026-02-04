@@ -4,7 +4,9 @@
 </head> 
 <body> 
 <?php 
-require("connexion.php"); 
+require_once("AccesBD.php");
+$connexion = connection();
+
 
 
 $NOM=$_POST['NOM']; 
