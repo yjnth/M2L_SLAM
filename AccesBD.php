@@ -34,7 +34,6 @@ function afficheDepartementNom($connexion) {
 }
 
 function afficheLigueNomPresident($connexion,$dep_id) {
-   
     $result_ligues = mysqli_query($connexion, "SELECT nom, president FROM ligue WHERE id_dep = $dep_id");
     $ligues= [];
     while ($ligue = mysqli_fetch_assoc($result_ligues)) {

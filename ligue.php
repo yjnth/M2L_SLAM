@@ -27,7 +27,7 @@
 <?php
 		$dep_id = $_GET['dep'];
 		require_once("AccesBD.php");
-		$dep_id = $_GET['dep'];
+		
 		$connexion = connection();
 			
 		$dept = afficheDepartementNom($connexion);
@@ -46,13 +46,13 @@
 		<?php
 	
 			
-			$ligues = afficheLigueNomPresident($connexion,$dep_id); 
+			$ligues = afficheLigueNomPresident($connexion,$dep_id); // <-- attention au nom
 			foreach ($ligues as $ligue) {
    	 		echo "<tr>";
     		echo "<td>".$ligue['nom']."</td>";
     		echo "<td>".$ligue['president']."</td>";
     		echo "<td><a href='details.php?ligue=".$ligue['nom']."'><img src = 'img/door.jpg'></a></td>";
-    		echo "</tr>";
+    	    echo "</tr>";
 			}
 
 			
