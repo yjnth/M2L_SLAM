@@ -1,3 +1,8 @@
+<?php
+require_once("AccesBD.php");
+$connexion = connection();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +31,7 @@
 	
 <?php
 	
-			require("connexion.php");
+			
 
 			$dep_id = $_GET['dep'];
 			$result_dept = mysqli_query($connexion, "SELECT nom FROM departement WHERE id_departement = $dep_id");
@@ -35,7 +40,6 @@
 
 
 	?> 
-
 	<!-- titre de la page -->
 	<div class ="m2l-content m2l-light-grey">
 		<h1>Les ligues de <?php echo $dept['nom']; ?>  </h1>

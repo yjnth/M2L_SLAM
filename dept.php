@@ -1,6 +1,8 @@
 <?php
-require("connexion.php");
+require_once("AccesBD.php");
+$connexion = connection();
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -34,13 +36,14 @@ require("connexion.php");
 		<!-- contenu à définir -->
 		<div class="m2l-content">
 			<table class="m2l-table">
+				
 				<?php
-				$res = mysqli_query($connexion, "SELECT NOM,id_departement FROM departement;");
-				while ($row = mysqli_fetch_assoc($res)) {
+				$dept = dept();
+				while ($row = mysqli_fetch_assoc($dept)) {
 					echo "<tr>
 							<td>
 								<a class='m2l-hover-green' href='ligue.php?dep={$row['id_departement']}'>
-								 Ligues de {$row['NOM']}
+								 Ligues de {$row['nom']}
 								<a/>
 							<td/>
 						<tr/>";

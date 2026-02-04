@@ -1,5 +1,6 @@
 <?php
-require("connexion.php"); 
+require_once("AccesBD.php");
+$connexion = connection();
 ?>
 
 <!DOCTYPE html>
@@ -22,15 +23,16 @@ require("connexion.php");
 	<br/>
 	<?php
 	$id = $_GET['ligue'];
-	$res = mysqli_query($connexion, "SELECT NOM,president,mail,telephone,adresse,olympique FROM ligue WHERE NOM = '".$id."';");
-			$row = mysqli_fetch_assoc($res); 
-			
-			$ligue = $row['NOM'];
-			$prez  = $row['president'];
-			$mail  = $row['mail'];
-			$tel   = $row['telephone'];
-			$adr   = $row['adresse'];
-			$olympique = (bool)$row['olympique'];
+
+	$details = details($id);
+	$row = mysqli_fetch_assoc($details);
+
+	$ligue = $row['nom'];
+	$prez  = $row['president'];
+	$mail  = $row['mail'];
+	$tel   = $row['telephone'];
+	$adr   = $row['adresse'];
+	$olympique = (bool)$row['olympique'];
 	?>
 
 	<!-- titre de la page -->
