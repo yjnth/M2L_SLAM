@@ -17,6 +17,7 @@ $id_dep=$_POST['id_dep'];
 $req="insert into ligue (nom, president, mail, telephone, adresse, olympique, id_dep) 
 values('$NOM','$president','$mail','$telephone','$adresse','$olympique',$id_dep)";
 $resultat=mysqli_query($connexion,$req); 
+
 if ($resultat) echo "Ajout effectué"; 
 else echo "Ajout non effectué !"; 
 ?> 
