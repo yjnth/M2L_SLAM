@@ -1,5 +1,5 @@
 <?php 
-define ('serveur','localhost'); 
+define('serveur','localhost'); 
 define('nom','root'); 
 define('passe',''); 
 define('base','m2l'); 
@@ -8,4 +8,5 @@ if (!$connexion)
 { 
  echo "La connexion a échouée !"; 
 } 
+
 ?> 

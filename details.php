@@ -1,3 +1,7 @@
+<?php
+require("connexion.php"); 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +12,7 @@
 <body>
 <!-- MAIN -->
 <div class="m2l-main" >
-	
 	<div class ="m2l-content m2l-head"><a href="index.html"><h3>ACCUEIL M2L</h3></a></div>
-
 	<ul class="m2l-navbar">
 		 <li><a class="m2l-hover-light-blue" href="crosl.html">Le CROSL</a></li>
 		 <li><a class="m2l-hover-light-blue" href="dept.html">Les Ligues</a></li>
@@ -20,7 +22,6 @@
 	<br/>
 	<?php
 	$id = $_GET['ligue'];
-	require("connexion.php"); 
 	$res = mysqli_query($connexion, "SELECT NOM,president,mail,telephone,adresse,olympique FROM ligue WHERE NOM = '".$id."';");
 			$row = mysqli_fetch_assoc($res); 
 			
