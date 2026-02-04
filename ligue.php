@@ -46,7 +46,7 @@
 		<?php
 	
 			
-			$ligues = afficheLigueNomPresident($connexion,$dep_id); // <-- attention au nom
+			$ligues = afficheLigueNomPresident($connexion,$dep_id); 
 			foreach ($ligues as $ligue) {
    	 		echo "<tr>";
     		echo "<td>".$ligue['nom']."</td>";
