@@ -51,7 +51,6 @@ function afficheDepartementNom($connexion) {
 	$dept = mysqli_fetch_assoc($result_dept);   
     
     return $dept;
-
 }
 
 function afficheLigueNomPresident($connexion,$dep_id) {
