@@ -1,20 +1,23 @@
 <html>
-
+<?php
+require_once("AccesBD.php");
+$connexion = connection();
+?>
 <head>
     <title>Table Informations</title>
 </head>
 
 <body>
-        <div class="m2l-content m2l-head"><a href="index.html">
-				<h3>ACCUEIL M2L</h3>
-		</a></div>
+    <div class="m2l-content m2l-head"><a href="index.html">
+            <h3>ACCUEIL M2L</h3>
+        </a></div>
 
-		<ul class="m2l-navbar">
-			<li><a class="m2l-hover-light-blue" href="crosl.html">Le CROSL</a></li>
-			<li><a class="m2l-hover-light-blue" href="dept.php">Les Ligues</a></li>
-			<li><a class="m2l-hover-light-blue" href="contact.html">Contact</a></li>
-			<li><a class="m2l-hover-light-blue" href="AjoutLigue.html">Ajouter une Ligue</a></li>
-		</ul>
+    <ul class="m2l-navbar">
+        <li><a class="m2l-hover-light-blue" href="crosl.html">Le CROSL</a></li>
+        <li><a class="m2l-hover-light-blue" href="dept.php">Les Ligues</a></li>
+        <li><a class="m2l-hover-light-blue" href="contact.html">Contact</a></li>
+        <li><a class="m2l-hover-light-blue" href="AjoutLigue.html">Ajouter une Ligue</a></li>
+    </ul>
     <div align="center">
         <h1>Saisie d'un nouveau client</h1>
         <form action="AjoutLigue.php" method="post">
@@ -56,7 +59,32 @@
                 </tr>
                 <tr>
                     <td width="108">id_dep</td>
-                    <td width="105"><input type="text" name="id_dep" size="30" maxlength="30">
+                    <td width="105">
+                <select name="id_dep">
+                <?php
+		        /*$resultat=mysqli_query($connexion,"SELECT  DISTINCT ligue.id_dep,departement.nom AS nom_departement
+                 FROM ligue, departement WHERE departement.id_departement = ligue.id_dep");
+		        if ($resultat) {
+			        while ($client=mysqli_fetch_assoc($resultat))
+				    echo "<option value='{$client['id_dep']}'>{$client['nom_departement']}</option>";
+
+			
+			        mysqli_free_result($resultat);
+		        }
+		        else echo "requête non exécutée correctement !";*/
+
+                $departement = menuDeroulantDepartement($connexion);
+                foreach($departement as $dep) {
+                    echo "<option value='{$dep['id_dep']}'>{$dep['nom_departement']}</option>";
+
+                }
+	            ?>
+
+
+
+
+
+                        </select>
                     </td>
                 </tr>
             </table>
