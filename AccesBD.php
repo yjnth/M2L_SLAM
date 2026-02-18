@@ -28,7 +28,7 @@ function dept(){
             FROM departement";
     
     
-    $dept= mysqli_query($connexion, $sql);
+    $dept = mysqli_query($connexion, $sql);
 
     return $dept;
 }
@@ -63,5 +63,19 @@ function afficheLigueNomPresident($connexion,$dep_id) {
     return $ligues;
 }
 
+function adherent($id){
+    $connexion = connection();
+    
+    $sql = "SELECT a.nom, a.prenom, a.date_naissance, l.nom AS ligue
+            FROM adherent a
+            JOIN ligue l ON a.id_ligue = l.id_ligue
+            WHERE l.nom = '$id'";
+
+
+    $adherent = mysqli_query($connexion, $sql);
+    
+    return $adherent;
+}
+  
 
 ?>

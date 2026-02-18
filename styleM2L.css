@@ -7,6 +7,15 @@ html,body{
 	line-height:1.5;
 }
 
+.adherent {
+  border-collapse: collapse;
+  width: 100%;
+   padding-right: 50px;/* padding right OK */
+  border: 1px solid #ccc;
+  white-space: nowrap;
+}
+
+
 h1,h2,h3,h4,h5,h6{
 	font-family:"Segoe UI",Arial,sans-serif;
 	font-weight:normal;
@@ -237,5 +246,4 @@ table.m2l-table {
 .m2l-border-dark-grey,.m2l-hover-border-dark-grey:hover,.m2l-border-dark-gray,.m2l-hover-border-dark-gray:hover{border-color:#616161}
 .m2l-border-pale-red,.m2l-hover-border-pale-red:hover{border-color:#ffe7e7}.m2l-border-pale-green,.m2l-hover-border-pale-green:hover{border-color:#e7ffe7}
 .m2l-border-pale-yellow,.m2l-hover-border-pale-yellow:hover{border-color:#ffffcc}.m2l-border-pale-blue,.m2l-hover-border-pale-blue:hover{border-color:#e7ffff}
-
 

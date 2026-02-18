@@ -44,8 +44,6 @@
 	<div class ="m2l-content">
 		<table class="m2l-table">
 		<?php
-	
-			
 			$ligues = afficheLigueNomPresident($connexion,$dep_id); // <-- attention au nom
 			foreach ($ligues as $ligue) {
    	 		echo "<tr>";
@@ -54,10 +52,7 @@
     		echo "<td><a href='details.php?ligue=".$ligue['nom']."'><img src = 'img/door.jpg'></a></td>";
     	    echo "</tr>";
 			}
-
-			
     	?>	
-			 
 		</table>
 	</div>
 	
