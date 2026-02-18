@@ -77,5 +77,18 @@ function adherent($id){
     return $adherent;
 }
   
+function menuDeroulantDepartement ($connexion) {
+	$resultat=mysqli_query($connexion,"SELECT  DISTINCT ligue.id_dep, departement.nom AS nom_departement
+    FROM ligue, departement WHERE departement.id_departement = ligue.id_dep");
+
+    $departement = [];
+    while ($row=mysqli_fetch_assoc($resultat)) {
+        $departements[] = $row;
+    }
+    mysqli_free_result($resultat);
+    return $departements;
+	
+}
+
 
 ?>
